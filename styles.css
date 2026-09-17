@@ -1,0 +1,92 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, -apple-system, "Noto Sans JP", sans-serif;
+  background: #f7f8fa;
+  color: #1f2937;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+body { display: flex; flex-direction: column; }
+
+button, input { font: inherit; }
+
+.toolbar {
+  z-index: 2;
+  flex: 0 0 auto;
+  padding: max(8px, env(safe-area-inset-top)) 8px 8px;
+  background: rgba(247, 248, 250, .97);
+  border-bottom: 1px solid #dfe3e8;
+  box-shadow: 0 2px 8px rgba(31, 41, 55, .08);
+}
+
+.toolbar__row { display: flex; align-items: center; gap: 6px; }
+.settings-row { margin-top: 7px; }
+
+button {
+  min-height: 44px;
+  border: 1px solid #cbd1d8;
+  border-radius: 10px;
+  background: #fff;
+  color: #273142;
+  font-weight: 650;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:active { transform: scale(.97); }
+button:focus-visible, input:focus-visible { outline: 3px solid #93c5fd; outline-offset: 1px; }
+button:disabled { opacity: .36; transform: none; }
+.tool-button { padding: 0 12px; }
+.tool-button.is-active { color: #fff; background: #2563eb; border-color: #2563eb; }
+.icon-button { min-width: 44px; padding: 0 9px; font-size: 1.25rem; }
+.danger { margin-left: auto; color: #b42318; font-size: .8rem; }
+.separator { width: 1px; height: 30px; background: #d8dde3; }
+
+.color-control, .size-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  font-size: .85rem;
+  font-weight: 650;
+}
+
+.color-control input {
+  width: 44px;
+  height: 36px;
+  padding: 2px;
+  border: 1px solid #cbd1d8;
+  border-radius: 9px;
+  background: #fff;
+}
+
+.size-control { flex: 1; }
+.size-control input { flex: 1; min-width: 70px; accent-color: #2563eb; }
+.size-control output { width: 2ch; text-align: right; font-variant-numeric: tabular-nums; }
+
+.board-wrap { position: relative; flex: 1 1 auto; min-height: 0; background: #fff; }
+#board { display: block; width: 100%; height: 100%; touch-action: none; cursor: crosshair; }
+.save-status {
+  position: fixed;
+  right: 10px;
+  bottom: max(8px, env(safe-area-inset-bottom));
+  padding: 5px 9px;
+  border-radius: 12px;
+  color: #6b7280;
+  background: rgba(255,255,255,.82);
+  font-size: .7rem;
+  pointer-events: none;
+}
+
+@media (max-width: 370px) {
+  .tool-button { padding: 0 8px; font-size: .82rem; }
+  .icon-button { min-width: 42px; padding: 0 6px; }
+}
